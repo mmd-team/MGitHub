@@ -2,6 +2,7 @@ package com.mmdteam.mgithub.components.home;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
@@ -32,6 +33,9 @@ public class TabHomeFragment extends BaseFragment {
     HomePresenter presenter;
     @BindView(R.id.home)
     TextView home;
+
+    @BindView(R.id.main_content)
+    RecyclerView mainContent;
 
     private QMUITipDialog tipDialog;
 
