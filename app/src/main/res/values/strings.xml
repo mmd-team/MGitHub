@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MGitHub</string>
+    <string name="icon_home">&#xe6cb;</string>
+    <string name="icon_find">&#xe718;</string>
+    <string name="icon_me">&#xe657;</string>
+    <string name="username">用户名</string>
+    <string name="password">密码</string>
+    <string name="login">登录</string>
+</resources>

@@ -1,0 +1,30 @@
+{
+    "version": "1.0.0",
+    "warning": "请不要修改这个文件中的内容",
+    "project": {
+        "projectId": 101989
+    },
+    "application": {
+        "appId": 101795,
+        "packageId": "com.mmdteam.mgithub"
+    },
+    "services": {
+        "analytics": {
+            "appKey": "Aqcloud101795"
+        },
+        "messaging": {
+            "appId": "2100294075",
+            "appKey": "AM451P98IEVG"
+        },
+        "crash": {
+            "appId": "593d97d8fe"
+        },
+        "payment": {
+            "offerId": "TC101795"
+        },
+        "storage": {
+            "bucket": "tac-mgithub-st-1251482552",
+            "region": "ap-shanghai"
+        }
+    }
+}
