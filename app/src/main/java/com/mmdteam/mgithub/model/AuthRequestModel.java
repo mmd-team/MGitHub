@@ -21,8 +21,8 @@ public class AuthRequestModel {
         AuthRequestModel model = new AuthRequestModel();
         model.scopes = Arrays.asList("user", "repo", "gist", "notifications");
         model.note = BuildConfig.APPLICATION_ID;
-        model.clientId = AppConfig.OPENHUB_CLIENT_ID;
-        model.clientSecret = AppConfig.OPENHUB_CLIENT_SECRET;
+        model.clientId = AppConfig.M_GITHUB_CLIENT_ID;
+        model.clientSecret = AppConfig.M_GITHUB_CLIENT_SECRET;
         model.noteUrl = AppConfig.REDIRECT_URL;
         return model;
     }

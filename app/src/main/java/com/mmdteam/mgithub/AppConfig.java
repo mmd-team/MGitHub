@@ -1,21 +1,27 @@
 package com.mmdteam.mgithub;
 
-public class AppConfig {
+import com.sensorsdata.analytics.android.sdk.SensorsDataAPI;
+
+public interface AppConfig {
 
 
-    public interface Config {
+    interface Config {
         String GIT_BASE_URL = "https://github.com/";
         String GIT_API_BASE_URL = "https://api.github.com/";
         String DB_NAME = "MGitHub.db";
     }
 
-    public static final int HTTP_TIME_OUT = 32 * 1000;
-    public static final int HTTP_MAX_CACHE_SIZE = 32 * 1024 * 1024;
-    public static final int IMAGE_MAX_CACHE_SIZE = 32 * 1024 * 1024;
-    public static final int CACHE_MAX_AGE = 4 * 7 * 24 * 60 * 60;
-    public static final String OPENHUB_CLIENT_ID = BuildConfig.OPENHUB_CLIENT_ID;
-    public static final String OPENHUB_CLIENT_SECRET = BuildConfig.OPENHUB_CLIENT_SECRET;
-    public final static String BUGLY_APPID = BuildConfig.BUGLY_ID;
+    int HTTP_TIME_OUT = 32 * 1000;
+    int HTTP_MAX_CACHE_SIZE = 32 * 1024 * 1024;
+    int IMAGE_MAX_CACHE_SIZE = 32 * 1024 * 1024;
+    int CACHE_MAX_AGE = 4 * 7 * 24 * 60 * 60;
+    String M_GITHUB_CLIENT_ID = BuildConfig.M_GITHUB_CLIENT_ID;
+    String M_GITHUB_CLIENT_SECRET = BuildConfig.M_GITHUB_CLIENT_SECRET;
+    String BUGLY_APP_ID = BuildConfig.BUGLY_ID;
 
-    public static final String REDIRECT_URL = "https://github.com/ThirtyDegreesRay/OpenHub/CallBack";
+
+    String REDIRECT_URL = "https://github.com/ThirtyDegreesRay/OpenHub/CallBack";
+
+    String SENSORS_DATA_ADDRESS = BuildConfig.SENSORS_DATA_ADDRESS;
+    SensorsDataAPI.DebugMode DEBUG_MODE = BuildConfig.DEBUG ? SensorsDataAPI.DebugMode.DEBUG_AND_TRACK : SensorsDataAPI.DebugMode.DEBUG_OFF;
 }
