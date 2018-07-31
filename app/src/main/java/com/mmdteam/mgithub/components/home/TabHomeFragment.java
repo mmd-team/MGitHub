@@ -3,7 +3,6 @@ package com.mmdteam.mgithub.components.home;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
 import android.widget.TextView;
 
 import com.mmdteam.mgithub.App;
@@ -65,7 +64,8 @@ public class TabHomeFragment extends BaseFragment {
     }
 
     @OnClick(R.id.home)
-    void home(View view) {
+    void home() {
+
         if (AppData.INSTANCE.getAuthUser() != null) {
             home.setText(AppData.INSTANCE.getAccessToken());
             tipDialog.show();
