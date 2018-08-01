@@ -47,6 +47,12 @@ public class App extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        trackInstallation();
+    }
+
+    private void trackInstallation() {
+        SensorsDataAPI.sharedInstance().trackInstallation("AppInstall");
     }
 
 
