@@ -37,7 +37,7 @@ public class LoginPresenter {
     }
 
     private Subscription login1() {
-        String token = Credentials.basic("weiyinouon@163.com", "a5437650");
+        String token = Credentials.basic("weiyinouon@163.com", "a5437650!");
         return model.login(token).observeOn(rxSchedulers.internet())
                 .observeOn(rxSchedulers.androidThread())
                 .subscribe(new Subscriber<Response<BasicToken>>() {

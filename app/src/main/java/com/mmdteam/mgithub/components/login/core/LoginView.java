@@ -51,7 +51,7 @@ public class LoginView {
 
 
     @OnClick(R.id.login_btn)
-    void login(View view) {
+    void login() {
         tipDialog = new QMUITipDialog.Builder(activity)
                 .setIconType(QMUITipDialog.Builder.ICON_TYPE_LOADING)
                 .setTipWord("正在登录")

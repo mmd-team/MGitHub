@@ -20,7 +20,7 @@ public interface AppConfig {
     String BUGLY_APP_ID = BuildConfig.BUGLY_ID;
 
 
-    String REDIRECT_URL = "https://github.com/ThirtyDegreesRay/OpenHub/CallBack";
+    String REDIRECT_URL = "http://other.mmdteam.com/github/callback";
 
     String SENSORS_DATA_ADDRESS = BuildConfig.SENSORS_DATA_ADDRESS;
     SensorsDataAPI.DebugMode DEBUG_MODE = BuildConfig.DEBUG ? SensorsDataAPI.DebugMode.DEBUG_AND_TRACK : SensorsDataAPI.DebugMode.DEBUG_OFF;
