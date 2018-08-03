@@ -15,17 +15,28 @@ import com.sensorsdata.analytics.android.sdk.SensorsDataAPI;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import io.objectbox.BoxStore;
+import io.objectbox.android.AndroidObjectBrowser;
+
 
 public class App extends Application {
 
 
     private static AppComponent appComponent;
 
+    @Inject
+    BoxStore boxStore;
+
     @Override
     public void onCreate() {
         super.onCreate();
         AppData.INSTANCE.getSystemDefaultLocal();
         appComponent = DaggerAppComponent.builder().appModule(new AppModule(this)).build();
+        if (BuildConfig.DEBUG) {
+            new AndroidObjectBrowser(boxStore).start(this);
+        }
         initNetWork();
         initSensorsData();
     }

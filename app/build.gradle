@@ -3,6 +3,7 @@ apply plugin: 'com.novoda.build-properties'
 apply plugin: 'org.greenrobot.greendao'
 //添加 com.sensorsdata.analytics.android 插件
 apply plugin: 'com.sensorsdata.analytics.android'
+apply plugin: 'io.objectbox'
 
 greendao {
     schemaVersion 1
@@ -70,8 +71,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
     lintOptions {
         abortOnError false
@@ -120,4 +121,6 @@ dependencies {
     implementation "com.mikepenz:iconics-core:3.0.3@aar"
     //sensors data
     implementation(name: 'SensorsAnalyticsSDK-release', ext: 'aar')
+    implementation "io.objectbox:objectbox-android:$objectboxVersion"
+    annotationProcessor "io.objectbox:objectbox-processor:$objectboxVersion"
 }

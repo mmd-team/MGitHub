@@ -1,9 +1,12 @@
 package com.mmdteam.mgithub.components.login.core;
 
+import com.mmdteam.mgithub.dao.object.LoginUser;
+import com.mmdteam.mgithub.dao.object.LoginUserDao;
 import com.mmdteam.mgithub.model.BasicToken;
 import com.mmdteam.mgithub.model.User;
 import com.mmdteam.mgithub.util.rx.RxSchedulers;
 
+import io.objectbox.BoxStore;
 import okhttp3.Credentials;
 import retrofit2.Response;
 import rx.Subscriber;
@@ -16,16 +19,18 @@ public class LoginPresenter {
     private LoginModel model;
     private RxSchedulers rxSchedulers;
     private CompositeSubscription subscriptions;
+    private LoginUserDao userDao;
 
-    public LoginPresenter(RxSchedulers schedulers, LoginView view, LoginModel model, CompositeSubscription sub) {
+
+    public LoginPresenter(RxSchedulers schedulers, LoginView view, LoginModel model, CompositeSubscription sub, BoxStore boxStore) {
         this.rxSchedulers = schedulers;
         this.view = view;
         this.model = model;
         this.subscriptions = sub;
+        userDao = new LoginUserDao(boxStore);
     }
 
     public void onCreate() {
-
     }
 
     public void login() {
@@ -79,6 +84,10 @@ public class LoginPresenter {
 
                     @Override
                     public void onNext(Response<User> userResponse) {
+                        LoginUser loginUser = new LoginUser();
+                        loginUser.setUsername("weiyinouon@163.com");
+                        loginUser.setPassword("a5437650!");
+                        userDao.getBox().put(loginUser);
                         model.saveUserInfo(basicToken, userResponse.body());
                         view.getLogin(userResponse.body().toString());
                     }

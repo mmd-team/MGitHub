@@ -9,6 +9,7 @@ import com.mmdteam.mgithub.util.rx.RxSchedulers;
 
 import dagger.Module;
 import dagger.Provides;
+import io.objectbox.BoxStore;
 import rx.subscriptions.CompositeSubscription;
 
 @Module
@@ -22,8 +23,8 @@ public class HomeModule {
 
     @HomeScope
     @Provides
-    public HomeView provideHomeView() {
-        return new HomeView(homeFragment);
+    public HomeView provideHomeView(BoxStore boxStore) {
+        return new HomeView(homeFragment, boxStore);
     }
 
     @HomeScope

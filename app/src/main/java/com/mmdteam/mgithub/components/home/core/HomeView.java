@@ -10,6 +10,7 @@ import com.mmdteam.mgithub.AppData;
 import com.mmdteam.mgithub.R;
 import com.mmdteam.mgithub.components.home.TabHomeFragment;
 import com.mmdteam.mgithub.components.home.list.EventAdapter;
+import com.mmdteam.mgithub.dao.object.LoginUserDao;
 import com.mmdteam.mgithub.model.Event;
 import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
 import com.sensorsdata.analytics.android.sdk.SensorsDataAPI;
@@ -27,6 +28,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+import io.objectbox.BoxStore;
 
 public class HomeView {
 
@@ -43,10 +45,12 @@ public class HomeView {
     private QMUITipDialog tipDialog;
 
     private EventAdapter adapter;
+    private LoginUserDao userDao;
 
     @Inject
-    public HomeView(TabHomeFragment homeFragment) {
+    public HomeView(TabHomeFragment homeFragment, BoxStore boxStore) {
         this.homeFragment = homeFragment;
+        userDao = new LoginUserDao(boxStore);
     }
 
 
@@ -71,6 +75,7 @@ public class HomeView {
 
         if (AppData.INSTANCE.getAuthUser() != null) {
             home.setText(AppData.INSTANCE.getAccessToken());
+            home.setText(userDao.getQuery().findFirst().getPassword());
             tipDialog.show();
             homeFragment.getUserEvents(AppData.INSTANCE.getAccessToken(), AppData.INSTANCE.getAuthUser().getId());
         }
