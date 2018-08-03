@@ -6,10 +6,10 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
 import com.mmdteam.mgithub.R;
-import com.mmdteam.mgithub.ui.activity.base.BaseActivity;
 import com.mmdteam.mgithub.components.find.TabFindFragment;
 import com.mmdteam.mgithub.components.home.TabHomeFragment;
 import com.mmdteam.mgithub.components.mine.TabMineFragment;
+import com.mmdteam.mgithub.ui.activity.base.BaseActivity;
 import com.qmuiteam.qmui.widget.QMUITabSegment;
 import com.qmuiteam.qmui.widget.QMUITopBar;
 
@@ -56,7 +56,7 @@ public class MainActivity extends BaseActivity {
 
 
         final List<Fragment> fragments = new ArrayList<>();
-        fragments.add(new TabHomeFragment());
+        fragments.add(TabHomeFragment.instance());
         fragments.add(new TabFindFragment());
         fragments.add(new TabMineFragment());
 

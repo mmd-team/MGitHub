@@ -31,19 +31,27 @@ public abstract class BaseFragment extends UIFragment {
 
     protected abstract void initFragment(Bundle savedInstanceState);
 
+    protected void initFragment(View view, Bundle savedInstanceState) {
+
+    }
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
 
+    View fragmentView;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View fragmentView = inflater.inflate(getLayoutId(), container, false);
-        unbinder = ButterKnife.bind(this, fragmentView);
-        initFragment(savedInstanceState);
-
+        if (fragmentView == null) {
+            fragmentView = inflater.inflate(getLayoutId(), container, false);
+            unbinder = ButterKnife.bind(this, fragmentView);
+            initFragment(fragmentView, savedInstanceState);
+            initFragment(savedInstanceState);
+        }
         return fragmentView;
     }
 
@@ -71,8 +79,15 @@ public abstract class BaseFragment extends UIFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        unbinder.unbind();
+        if (null != fragmentView) {
+            ((ViewGroup) fragmentView.getParent()).removeView(fragmentView);
+        }
+    }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        unbinder.unbind();
     }
 
     @Override
@@ -97,7 +112,6 @@ public abstract class BaseFragment extends UIFragment {
     public boolean isFragmentShowed() {
         return isFragmentShowed;
     }
-
 
 
 }
