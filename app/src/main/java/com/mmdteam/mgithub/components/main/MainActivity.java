@@ -1,13 +1,20 @@
 package com.mmdteam.mgithub.components.main;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
+import com.mmdteam.mgithub.App;
 import com.mmdteam.mgithub.R;
 import com.mmdteam.mgithub.components.find.TabFindFragment;
 import com.mmdteam.mgithub.components.home.TabHomeFragment;
+import com.mmdteam.mgithub.components.main.core.MainModel;
+import com.mmdteam.mgithub.components.main.core.MainPresenter;
+import com.mmdteam.mgithub.components.main.core.MainView;
+import com.mmdteam.mgithub.components.main.dagger.DaggerMainComponent;
+import com.mmdteam.mgithub.components.main.dagger.MainModule;
 import com.mmdteam.mgithub.components.mine.TabMineFragment;
 import com.mmdteam.mgithub.ui.activity.base.BaseActivity;
 import com.qmuiteam.qmui.widget.QMUITabSegment;
@@ -15,6 +22,8 @@ import com.qmuiteam.qmui.widget.QMUITopBar;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 
@@ -28,6 +37,20 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.homeTabs)
     QMUITabSegment homeTabs;
 
+    @Inject
+    MainPresenter presenter;
+    @Inject
+    MainView mainView;
+    @Inject
+    MainModel mainModel;
+
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        DaggerMainComponent.builder().appComponent(App.getAppComponent()).mainModule(new MainModule(this)).build().inject(this);
+        super.onCreate(savedInstanceState);
+
+    }
 
     @Override
     protected int getContent() {

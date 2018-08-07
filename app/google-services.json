@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "55438322234",
+    "firebase_url": "https://kuaishua-c16be.firebaseio.com",
+    "project_id": "kuaishua-c16be",
+    "storage_bucket": "kuaishua-c16be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:55438322234:android:b771451743849fcf",
+        "android_client_info": {
+          "package_name": "com.mmdteam.mgithub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "55438322234-7kahkng2a7q60upq4bsupbjtfpk268g0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAUnIXbvd0A1cBhBZkvv9goliXyMLGjFA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

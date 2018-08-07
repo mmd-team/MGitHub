@@ -4,6 +4,7 @@ apply plugin: 'org.greenrobot.greendao'
 //添加 com.sensorsdata.analytics.android 插件
 apply plugin: 'com.sensorsdata.analytics.android'
 apply plugin: 'io.objectbox'
+apply plugin: 'com.google.gms.google-services'
 
 greendao {
     schemaVersion 1
@@ -123,4 +124,6 @@ dependencies {
     implementation(name: 'SensorsAnalyticsSDK-release', ext: 'aar')
     implementation "io.objectbox:objectbox-android:$objectboxVersion"
     annotationProcessor "io.objectbox:objectbox-processor:$objectboxVersion"
+
+    implementation 'com.google.firebase:firebase-core:16.0.1'
 }
