@@ -18,7 +18,7 @@ public class HomeView {
     private TabHomeFragment homeFragment;
 
     @Inject
-    public HomeView(TabHomeFragment homeFragment, BoxStore boxStore) {
+    public HomeView(TabHomeFragment homeFragment) {
         this.homeFragment = homeFragment;
 
     }

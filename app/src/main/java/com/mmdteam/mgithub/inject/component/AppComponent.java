@@ -13,7 +13,6 @@ import com.mmdteam.mgithub.util.IconUtils;
 import com.mmdteam.mgithub.util.rx.RxSchedulers;
 
 import dagger.Component;
-import io.objectbox.BoxStore;
 
 @AppScope
 @Component(modules = {AppModule.class, NetworkModule.class, RxModule.class, ApiServiceModule.class})
@@ -30,7 +29,5 @@ public interface AppComponent {
     RxSchedulers rxSchedulers();
 
     DaoSession daoSession();
-
-    BoxStore boxStore();
 
 }

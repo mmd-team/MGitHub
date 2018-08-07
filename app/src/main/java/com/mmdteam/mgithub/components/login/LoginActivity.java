@@ -37,9 +37,9 @@ public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
         loginView.onDestroy();
         presenter.onDestroy();
+        super.onDestroy();
     }
 
     @Override

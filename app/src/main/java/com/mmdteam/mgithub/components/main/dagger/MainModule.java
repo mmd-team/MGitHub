@@ -7,6 +7,7 @@ import com.mmdteam.mgithub.components.main.core.MainView;
 
 import dagger.Module;
 import dagger.Provides;
+import io.objectbox.BoxStore;
 
 @Module
 public class MainModule {

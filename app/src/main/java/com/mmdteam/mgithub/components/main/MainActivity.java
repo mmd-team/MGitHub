@@ -49,7 +49,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         DaggerMainComponent.builder().appComponent(App.getAppComponent()).mainModule(new MainModule(this)).build().inject(this);
         super.onCreate(savedInstanceState);
-
+        presenter.onCreate();
     }
 
     @Override

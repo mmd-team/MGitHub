@@ -21,7 +21,7 @@ public class LoginView {
     private View view;
     private Unbinder unbinder;
 
-    private LoginActivity activity;
+    LoginActivity activity;
     private QMUITipDialog tipDialog;
 
     @Inject

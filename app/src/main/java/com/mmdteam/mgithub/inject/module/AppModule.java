@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import com.mmdteam.mgithub.AppConfig;
 import com.mmdteam.mgithub.dao.DaoMaster;
 import com.mmdteam.mgithub.dao.DaoSession;
-import com.mmdteam.mgithub.dao.object.MyObjectBox;
 import com.mmdteam.mgithub.inject.component.AppScope;
 import com.mmdteam.mgithub.util.IconUtils;
 
@@ -14,7 +13,6 @@ import org.greenrobot.greendao.database.Database;
 
 import dagger.Module;
 import dagger.Provides;
-import io.objectbox.BoxStore;
 
 @Module
 public class AppModule {
@@ -46,13 +44,6 @@ public class AppModule {
         Database db = helper.getWritableDb();
         DaoMaster daoMaster = new DaoMaster(db);
         return daoMaster.newSession();
-    }
-
-    @NonNull
-    @Provides
-    @AppScope
-    public BoxStore provideBoxStore() {
-        return MyObjectBox.builder().androidContext(context).build();
     }
 
 

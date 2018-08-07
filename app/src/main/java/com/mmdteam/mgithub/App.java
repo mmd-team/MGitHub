@@ -5,6 +5,7 @@ import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.os.Build;
 
+import com.mmdteam.mgithub.dao.object.MyObjectBox;
 import com.mmdteam.mgithub.inject.component.AppComponent;
 import com.mmdteam.mgithub.inject.component.DaggerAppComponent;
 import com.mmdteam.mgithub.inject.module.AppModule;
@@ -15,8 +16,6 @@ import com.sensorsdata.analytics.android.sdk.SensorsDataAPI;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import io.objectbox.BoxStore;
 import io.objectbox.android.AndroidObjectBrowser;
 
@@ -26,14 +25,15 @@ public class App extends Application {
 
     private static AppComponent appComponent;
 
-    @Inject
-    BoxStore boxStore;
+
+    private BoxStore boxStore;
 
     @Override
     public void onCreate() {
         super.onCreate();
         AppData.INSTANCE.getSystemDefaultLocal();
         appComponent = DaggerAppComponent.builder().appModule(new AppModule(this)).build();
+        boxStore = MyObjectBox.builder().androidContext(App.this).build();
         if (BuildConfig.DEBUG) {
             new AndroidObjectBrowser(boxStore).start(this);
         }
@@ -90,4 +90,7 @@ public class App extends Application {
         return appComponent;
     }
 
+    public BoxStore getBoxStore() {
+        return boxStore;
+    }
 }

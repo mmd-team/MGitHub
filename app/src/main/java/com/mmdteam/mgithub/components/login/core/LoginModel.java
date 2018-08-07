@@ -63,7 +63,6 @@ public class LoginModel {
         authUser.setName(userInfo.getName());
         authUser.setAvatar(userInfo.getAvatarUrl());
         daoSession.getAuthUserDao().insert(authUser);
-//        Toasty.normal(loginContext, basicToken.getToken()).show();
         AppData.INSTANCE.setAuthUser(authUser);
         AppData.INSTANCE.setLoggedUser(userInfo);
     }

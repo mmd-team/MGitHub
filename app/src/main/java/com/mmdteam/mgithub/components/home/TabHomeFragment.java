@@ -17,7 +17,6 @@ import com.mmdteam.mgithub.components.home.core.HomeView;
 import com.mmdteam.mgithub.components.home.dagger.DaggerHomeComponent;
 import com.mmdteam.mgithub.components.home.dagger.HomeModule;
 import com.mmdteam.mgithub.components.home.list.EventAdapter;
-import com.mmdteam.mgithub.dao.object.LoginUserDao;
 import com.mmdteam.mgithub.model.Event;
 import com.mmdteam.mgithub.ui.fragment.base.BaseFragment;
 import com.qmuiteam.qmui.widget.dialog.QMUITipDialog;
@@ -34,7 +33,6 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import io.objectbox.BoxStore;
 
 public class TabHomeFragment extends BaseFragment {
 
@@ -47,9 +45,6 @@ public class TabHomeFragment extends BaseFragment {
     private QMUITipDialog tipDialog;
 
     private EventAdapter adapter;
-    private LoginUserDao userDao;
-    @Inject
-    BoxStore boxStore;
 
     @SuppressLint("ValidFragment")
     private TabHomeFragment() {
@@ -85,7 +80,7 @@ public class TabHomeFragment extends BaseFragment {
     @Override
     protected void initFragment(View view, Bundle savedInstanceState) {
         super.initFragment(view, savedInstanceState);
-        userDao = new LoginUserDao(boxStore);
+
         tipDialog = new QMUITipDialog.Builder(getActivity())
                 .setIconType(QMUITipDialog.Builder.ICON_TYPE_LOADING)
                 .setTipWord("正在加载")
@@ -138,7 +133,6 @@ public class TabHomeFragment extends BaseFragment {
 
         if (AppData.INSTANCE.getAuthUser() != null) {
             home.setText(AppData.INSTANCE.getAccessToken());
-            home.setText(userDao.getQuery().findFirst().getPassword());
             tipDialog.show();
             getUserEvents(AppData.INSTANCE.getAccessToken(), AppData.INSTANCE.getAuthUser().getId());
         }

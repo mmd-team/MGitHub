@@ -11,7 +11,6 @@ import com.mmdteam.mgithub.util.rx.RxSchedulers;
 
 import dagger.Module;
 import dagger.Provides;
-import io.objectbox.BoxStore;
 import rx.subscriptions.CompositeSubscription;
 
 @Module
@@ -31,9 +30,9 @@ public class LoginModule {
 
     @LoginScope
     @Provides
-    LoginPresenter providerLoginPresenter(RxSchedulers schedulers, LoginView loginView, LoginModel loginModel, BoxStore boxStore) {
+    LoginPresenter providerLoginPresenter(RxSchedulers schedulers, LoginView loginView, LoginModel loginModel) {
         CompositeSubscription subscriptions = new CompositeSubscription();
-        return new LoginPresenter(schedulers, loginView, loginModel, subscriptions, boxStore);
+        return new LoginPresenter(schedulers, loginView, loginModel, subscriptions);
     }
 
     @LoginScope

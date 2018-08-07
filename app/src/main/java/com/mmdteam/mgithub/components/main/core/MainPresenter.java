@@ -9,4 +9,8 @@ public class MainPresenter {
     public MainPresenter(MainActivity activity) {
         this.activity = activity;
     }
+
+    public void onCreate() {
+
+    }
 }
