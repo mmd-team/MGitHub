@@ -119,7 +119,7 @@ dependencies {
     }
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation 'com.github.GrenderG:Toasty:1.3.0'
-    implementation "com.mikepenz:iconics-core:3.0.3@aar"
+    implementation "com.mikepenz:iconics-core:3.0.4@aar"
     //sensors data
     implementation(name: 'SensorsAnalyticsSDK-release', ext: 'aar')
     implementation "io.objectbox:objectbox-android:$objectboxVersion"
