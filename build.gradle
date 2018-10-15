@@ -13,11 +13,11 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.4'
+        classpath 'com.android.tools.build:gradle:3.2.1'
         classpath 'com.novoda:gradle-build-properties-plugin:0.4.1'
         classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2'
         //添加 Sensors Analytics android-gradle-plugin 依赖
-        classpath 'com.sensorsdata.analytics.android:android-gradle-plugin2:2.0.1'
+        classpath 'com.sensorsdata.analytics.android:android-gradle-plugin2:2.1.2'
         classpath "io.objectbox:objectbox-gradle-plugin:$objectboxVersion"
         classpath 'com.google.gms:google-services:4.0.1'
     }
@@ -41,11 +41,11 @@ allprojects {
     }
 
     ext {
-        buildToolsVersion = "27.0.3"
-        compileSdkVersion = 27
+        buildToolsVersion = "28.0.3"
+        compileSdkVersion = 28
         minSdkVersion = 15
-        targetSdkVersion = 27
-        supportVersion = "27.1.1"
+        targetSdkVersion = 28
+        supportVersion = "28.0.0"
         objectboxVersion = '2.0.0'
     }
 }
