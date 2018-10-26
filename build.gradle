@@ -19,7 +19,7 @@ buildscript {
         //添加 Sensors Analytics android-gradle-plugin 依赖
         classpath 'com.sensorsdata.analytics.android:android-gradle-plugin2:2.1.2'
         classpath "io.objectbox:objectbox-gradle-plugin:$objectboxVersion"
-        classpath 'com.google.gms:google-services:4.0.1'
+        classpath 'com.google.gms:google-services:4.1.0'
     }
 }
 

@@ -122,7 +122,7 @@ dependencies {
     implementation "com.mikepenz:iconics-core:3.0.4@aar"
     //sensors data
     //添加 Sensors Analytics SDK 依赖
-    implementation 'com.sensorsdata.analytics.android:SensorsAnalyticsSDK:2.1.1'
+    implementation 'com.sensorsdata.analytics.android:SensorsAnalyticsSDK:2.1.2'
 //    implementation(name: 'SensorsAnalyticsSDK-release', ext: 'aar')
     implementation "io.objectbox:objectbox-android:$objectboxVersion"
     annotationProcessor "io.objectbox:objectbox-processor:$objectboxVersion"
