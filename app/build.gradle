@@ -127,5 +127,5 @@ dependencies {
     implementation "io.objectbox:objectbox-android:$objectboxVersion"
     annotationProcessor "io.objectbox:objectbox-processor:$objectboxVersion"
 
-    implementation 'com.google.firebase:firebase-core:16.0.4'
+    implementation 'com.google.firebase:firebase-core:16.0.5'
 }

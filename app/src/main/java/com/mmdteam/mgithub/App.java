@@ -43,6 +43,7 @@ public class App extends Application {
 
     private void initSensorsData() {
         SensorsDataAPI.sharedInstance(this, AppConfig.SENSORS_DATA_ADDRESS, AppConfig.DEBUG_MODE);
+        SensorsDataAPI.sharedInstance().trackFragmentAppViewScreen();
         try {
             // 打开自动采集, 并指定追踪哪些 AutoTrack 事件
             List<SensorsDataAPI.AutoTrackEventType> eventTypeList = new ArrayList<>();

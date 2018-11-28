@@ -16,8 +16,8 @@ public class TabFindFragment extends BaseFragment {
 
     }
 
-    @Override
-    public void onFragmentShowed() {
-        super.onFragmentShowed();
-    }
+//    @Override
+//    public void onFragmentShowed() {
+//        super.onFragmentShowed();
+//    }
 }

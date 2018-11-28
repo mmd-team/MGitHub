@@ -113,10 +113,10 @@ public class TabHomeFragment extends BaseFragment {
     }
 
 
-    @Override
-    public void onFragmentShowed() {
-        super.onFragmentShowed();
-    }
+//    @Override
+//    public void onFragmentShowed() {
+//        super.onFragmentShowed();
+//    }
 
     public void getUserEvents(String token, int id) {
         presenter.getUserEvents(token, id);
